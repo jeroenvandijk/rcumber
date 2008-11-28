@@ -39,6 +39,7 @@ class RcumbersController < ApplicationController
     get_rcumber
     @rcumber.run
     flash.now[:notice] = "Cucumber test just completed."
+    params[:selected_tab] = 'run'
     render :action => 'show'
   end
   

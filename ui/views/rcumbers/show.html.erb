@@ -10,13 +10,13 @@ var myTabs = new YAHOO.widget.TabView("demo");
 	 -->
 <div id="demo" class="yui-navset">
     <ul class="yui-nav">
-        <li class="<%= 'selected' %>">
+        <li class="<%= 'selected' unless params[:selected_tab] %>">
 					<a href="#tab1"><em>
 						Cucumber Test 	
 					</em></a>
 				</li>
 				<% unless @rcumber.last_results.nil? %>
-        <li>
+        <li class="<%= 'selected' if params[:selected_tab] == 'run' %>">
 					<a href="#tab2"><em>Cucumber Test Results <span id="state" class="<%= @rcumber.state.to_s %>"><%= @rcumber.state.to_s %></span>
 						</em></a>
 				</li>
