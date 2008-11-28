@@ -55,6 +55,33 @@ class Rcumber
     uid
   end
   
+  def textmate_match(expanded)
+    match ||= expanded.match(/Scenario:.*\# (.+):(\d+)/)
+    match ||= expanded.match(/(Given|When|Then|And).*\# (\.+):(\d+)/)
+    match ||= expanded.match(/(Given|When|Then|And).*\# (.+):(\d+)/)
+    match ||= expanded.match(/from (.+):(\d+)/)
+    match ||= expanded.match(/^\s*(.+):(\d+):in/)
+    match ||= expanded.match(/^(.+):(\d+)\s*$/)
+    match
+  end
+  
+  def add_links_to_backtrace(lines)
+    lines.collect do |line|
+      expanded = line.gsub '#{RAILS_ROOT}', RAILS_ROOT
+      if match = textmate_match(expanded)
+        file = File.expand_path(match[1])
+        line_number = match[2] if match[2]
+        html = "<a href='txmt://open?url=file://#{file}&line=#{line_number}'>#{line}</a>"
+      else
+        line
+      end
+    end
+  end
+
+  def last_results_with_textmate_links
+    add_links_to_backtrace(self.last_results)
+  end
+  
   def run
     tempfile = Tempfile.new("rcumber")
     `cucumber #{@path} > #{tempfile.path} 2> #{tempfile.path}`
