@@ -56,10 +56,14 @@ class Rcumber
   end
   
   def run
-    self.last_results = RcumberResults.new(`cucumber #{@path}`.to_a)
+    tempfile = Tempfile.new("rcumber")
+    `cucumber #{@path} > #{tempfile.path} 2> #{tempfile.path}`
+    self.last_results = RcumberResults.new(File.read(tempfile.path).to_a)  ## TODO Is to_a necessary?
+    
     self.state = :passing
     Rails.cache.write("rcumber/#{uid}/state", self.state.to_s)
     self.state = self.parse_test_results
+    self.state = :failing unless $?.success? 
   end
 
   def parse_test_results

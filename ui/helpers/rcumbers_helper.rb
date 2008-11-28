@@ -17,3 +17,8 @@ module RcumbersHelper
     ((params[:demos] == "true") ? "?demos=true" : "")
   end
 end
+
+
+def view_rcumber_path(uid)
+  "/rcumbers/#{uid}"
+end
