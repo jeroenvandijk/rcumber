@@ -10,6 +10,7 @@ ROADMAP / UPCOMING FEATURES
 * IN PROGRESS - better graphical feedback on a test run
 * OK - Add some screen shots to the home site
 * OK - Run all tests
+* After a test run, the results tab should be the active tab
 * Show all tests next to the current test for faster navigation.
 * Create a demo/home site where people can play with this plugin
 * Run a selected set of tests at once

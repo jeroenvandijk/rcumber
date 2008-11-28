@@ -69,8 +69,10 @@ class Rcumber
     lines.collect do |line|
       expanded = line.gsub '#{RAILS_ROOT}', RAILS_ROOT
       if match = textmate_match(expanded)
-        file = File.expand_path(match[1])
-        line_number = match[2] if match[2]
+        m1 = match[3].nil? ? match[1] : match[2]
+        m2 = match[3].nil? ? match[2] : match[3]
+        file = File.expand_path(m1)
+        line_number = m2 if m2
         html = "<a href='txmt://open?url=file://#{file}&line=#{line_number}'>#{line}</a>"
       else
         line
