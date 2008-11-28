@@ -10,13 +10,13 @@ ROADMAP / UPCOMING FEATURES
 * IN PROGRESS - better graphical feedback on a test run
 * OK - Add some screen shots to the home site
 * OK - Run all tests
-* After a test run, the results tab should be the active tab
+* OK - After a test run, the results tab should be the active tab
+* OK - Click on a stack trace in the results and navigate to textmate
 * Show all tests next to the current test for faster navigation.
 * Create a demo/home site where people can play with this plugin
 * Run a selected set of tests at once
-* Click on a stack trace in the results and navigate to textmate
 * Extract user configurable parameters into a ./config file
-* Integrate some relevant 3rd party agile articles/blogs on story tests and cucumber using a feeds.
+* Integrate some online help - relevant 3rd party agile articles/blogs on story tests and cucumber using a feeds.
 * structured editing of a cucumber test
 * subversion and git integration, including optional auto-commit of cucumbers when saved.
 
