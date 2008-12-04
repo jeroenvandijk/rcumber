@@ -15,7 +15,6 @@ var myTabs = new YAHOO.widget.TabView("demo");
             All Features 	
 					</em></a>
 				</li>
-				<% unless @rcumber.last_results.nil? %>
         <li class="<%= 'selected' if params[:selected_tab] == 'run' %>">
           <a href="#tab2">
             
@@ -23,7 +22,6 @@ var myTabs = new YAHOO.widget.TabView("demo");
   					Documentation 
 						</em></a>
 				</li>
-				<% end %>
     </ul>         
    
     <div class="yui-content">
@@ -65,8 +63,8 @@ var myTabs = new YAHOO.widget.TabView("demo");
 			</p></div>
 
 
-  <div><p><iframe id="documentation" src="http://github.com/aslakhellesoy/cucumber/wikis"></iframe>
-	</p></div>
+  <!-- <div><p><iframe id="documentation" src="http://github.com/aslakhellesoy/cucumber/wikis"></iframe>
+  </p></div> -->
 
 
 
