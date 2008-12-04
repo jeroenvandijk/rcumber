@@ -1,4 +1,3 @@
-<h1><%= image_tag('rcumber.gif') %> <%= @rcumber.name %></h1>
 
 <script type="text/javascript">
 var myTabs = new YAHOO.widget.TabView("demo");
@@ -12,12 +11,16 @@ var myTabs = new YAHOO.widget.TabView("demo");
     <ul class="yui-nav">
         <li class="<%= 'selected' unless params[:selected_tab] %>">
 					<a href="#tab1"><em>
-						Cucumber Test 	
+						<%= image_tag('rcumber.gif', :border => '0', :width => 16, :height => 16) %>
+            Cucumber Test 	
 					</em></a>
 				</li>
 				<% unless @rcumber.last_results.nil? %>
         <li class="<%= 'selected' if params[:selected_tab] == 'run' %>">
-					<a href="#tab2"><em>Cucumber Test Results <span id="state" class="<%= @rcumber.state.to_s %>"><%= @rcumber.state.to_s %></span>
+          <a href="#tab2">
+            
+            <em><%= image_tag('rcumber.gif', :border => '0', :width => 16, :height => 16) %>
+  					Cucumber Test Results <span id="state" class="<%= @rcumber.state.to_s %>"><%= @rcumber.state.to_s %></span>
 						</em></a>
 				</li>
 				<% end %>
@@ -27,13 +30,17 @@ var myTabs = new YAHOO.widget.TabView("demo");
     
       <div><p>
 				<%= render :partial => 'rcumbers/actions' %>
+        <h3><%= @rcumber.name %></h3>
+        <hr/>
 				<pre><%= @rcumber.raw_content.to_s %></pre>
 			</p></div>
 
 			<% unless @rcumber.last_results.nil? %>
 		  <div class="cucumber_results"><p>
 				<%= render :partial => 'rcumbers/actions' %>
-				<pre><%= @rcumber.last_results_with_textmate_links.to_s %></pre>
+        <h3><%= @rcumber.name %></h3>
+				<hr/>
+        <pre><%= @rcumber.last_results_with_textmate_links.to_s %></pre>
 				</p></div>
 			<% end %>
 

@@ -1,16 +1,29 @@
 
+<script type="text/javascript">
+var myTabs = new YAHOO.widget.TabView("demo");
+</script> 
+
+<!-- <div id="nav_list">
+  leftside nav items here
+</div>
+	 -->
 <div id="demo" class="yui-navset">
     <ul class="yui-nav">
-      <li class="<%= 'selected' %>">
-				<a href="#tab1"><em>
-					All Tests
-				</em></a>
-			</li> 
-		  <li>
-					<a href="#tab2"><em>
-						Cucumber Documentation
+        <li class="<%= 'selected' unless params[:selected_tab] %>">
+					<a href="#tab1"><em>
+						<%= image_tag('rcumber.gif', :border => '0', :width => 16, :height => 16) %>
+            All Features 	
 					</em></a>
 				</li>
+				<% unless @rcumber.last_results.nil? %>
+        <li class="<%= 'selected' if params[:selected_tab] == 'run' %>">
+          <a href="#tab2">
+            
+            <em><%= image_tag('rcumber.gif', :border => '0', :width => 16, :height => 16) %>
+  					Documentation 
+						</em></a>
+				</li>
+				<% end %>
     </ul>         
    
     <div class="yui-content">
@@ -19,7 +32,6 @@
 
 				<div id="cucumber_index">
 
-				<h1><img src="/images/rcumber.gif"/>Cucumber Dashboard</h1>
 				<%= link_to 'run all tests', rcumber_runall_path + demo_parameters, :confirm => "This will clear the known state of every test that you have run up to this point." %>				
 				| <%= link_to 'create a new cucumber', new_rcumber_path + demo_parameters %>				
 				<% if @rcumbers.empty? %>
@@ -45,6 +57,7 @@
 							</tr>
 						<% end %>
 					<tbody>
+					</table>
 				<% end %>
 
 				</div>
@@ -52,8 +65,13 @@
 			</p></div>
 
 
+  <div><p><iframe id="documentation" src="http://github.com/aslakhellesoy/cucumber/wikis"></iframe>
+	</p></div>
+
+
 
 
 		</div><!-- yui-content -->
+
 		
 </div>

@@ -1,6 +1,5 @@
 <%= rcumber_flashes %>
 
-<h1><%= image_tag('rcumber.gif') %> <%= @rcumber.name %></h1>
 	
 
 
@@ -24,11 +23,14 @@ var myTabs = new YAHOO.widget.TabView("demo");
     <div class="yui-content">
     
       <div><p>
-				<fieldset id="edit_rcumber">
-					<legend>Edit it</legend>
-	
+
+          <h1><%= image_tag('rcumber.gif') %> <%= @rcumber.name %></h1>
 					<% form_for @rcumber, :url => view_rcumber_path(@rcumber.uid) do |f| %>
-						<%= f.text_area :raw_content, :cols => 70 %>
+					<%= submit_tag 'Pickle It!' %>
+					<%= link_to 'Cancel this edit', view_rcumber_path(@rcumber.uid) %>
+					<br/>
+					<br/>
+						<%= f.text_area :raw_content, :class => 'rcumber_raw_text' %>
 						<br/>
 						<br/>
 							<%= submit_tag 'Pickle It!' %>
@@ -37,13 +39,13 @@ var myTabs = new YAHOO.widget.TabView("demo");
 								<input type="hidden" name="demos" value="true">
 							<% end %>
 					<% end %>
-				</fieldset>
+
 
 			</p></div>
 			<% unless @rcumber.last_results.nil? %>
 		  <div class="cucumber_results"><p>
 				<%= render :partial => 'rcumbers/actions' %>
-				<pre><%= @rcumber.last_results.to_s %></pre>
+        <pre><%= @rcumber.last_results_with_textmate_links.to_s %></pre>
 			<% end %>
 			</p></div>
 

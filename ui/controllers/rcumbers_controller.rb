@@ -13,6 +13,7 @@ class RcumbersController < ApplicationController
     else
       @rcumbers = Rcumber.all
     end
+    @rcumber = @rcumbers.first ## TODO: Remove me
   end
 
   def get_rcumber
