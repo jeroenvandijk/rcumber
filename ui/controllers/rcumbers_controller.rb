@@ -42,7 +42,7 @@ class RcumbersController < ApplicationController
     # Process.detach(p)
     flash.now[:notice] = "Cucumber test completed." if @rcumber.state == :passing
     flash.now[:error] = "Cucumber test completed." if @rcumber.state == :failing
-    # params[:selected_tab] = 'run'
+    params[:selected_tab] = 'run'
     render :action => 'show'
   end
   
