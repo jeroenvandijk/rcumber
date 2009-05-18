@@ -30,7 +30,7 @@ var myTabs = new YAHOO.widget.TabView("demo");
 
 				<div id="cucumber_index">
 
-				<%= link_to 'run all tests', rcumber_runall_path + demo_parameters, :confirm => "This will clear the known state of every test that you have run up to this point." %>				
+				<%= link_to 'run all tests', runall_rcumbers_path + demo_parameters, :confirm => "This will clear the known state of every test that you have run up to this point." %>				
 				| <%= link_to 'create a new cucumber', new_rcumber_path + demo_parameters %>				
 				<% if @rcumbers.empty? %>
 					<p>You don't have any Cucumber tests in the ./feature directory of your project. <br/>
@@ -48,7 +48,7 @@ var myTabs = new YAHOO.widget.TabView("demo");
 								<%# rcumber.state = :passing %>
 								<td class="<%= rcumber.state.to_s %>"><%= rcumber.state.to_s %></td>
 								<td>
-									<%= link_to 'run it', rcumber_run_path(rcumber.uid) + demo_parameters %>
+									<%= link_to 'run it', run_rcumber_path(rcumber.uid) + demo_parameters %>
 									| <%= link_to 'view', view_rcumber_path(rcumber.uid) + demo_parameters %>
 									| <%= link_to 'edit', edit_rcumber_path(rcumber.uid) + demo_parameters %>				
 								</td>

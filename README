@@ -42,15 +42,6 @@ If you're looking at this right now - it's only been a day since I've pulled thi
 
 h3. Add to your routes
 
-You need to add the following to your routes.rb until I figure out how to bootstrap this in the plugin init process:
-
-<pre> 
-map.rcumber 'rcumber', :controller => 'rcumbers', :action => 'index' 
-map.resources :rcumbers do |rcumber|
-  rcumber.run 'run', :controller => 'rcumbers', :action => 'run'
-end
-</pre>
-
 It's simple to add rcumber to your rails project - just install it as plugin into your project:
 
 <pre>
