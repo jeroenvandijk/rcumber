@@ -40,8 +40,6 @@ h2. Installation
 
 If you're looking at this right now - it's only been a day since I've pulled this out of a project (and I'm still a newbie at building my own plugin) - and there's some kinks - here they are - any help would be appreciated!:
 
-h3. Add to your routes
-
 It's simple to add rcumber to your rails project - just install it as plugin into your project:
 
 <pre>
